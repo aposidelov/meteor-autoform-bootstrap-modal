@@ -143,4 +143,4 @@ inputColClass='col-sm-9'
 * ``afterRemove`` - should be a helper that return a function that accepts a single argument, result, and is called only when the remove operation succeeds.
 * ``errorRemove`` - should be a helper that return a function that  that accepts a single argument, error, and is called only when the remove operation fails. If you don't provide this callback, there is a default onError function that displays an alert and logs the error to the browser console.
 
-How to use remove callbacks see example above in [Remove Example with callbacks](#ex-remove-callbacks) section.
+How to use remove callbacks see example above in [Remove Example with callbacks](#remove-with-callbacks-example) section.
