@@ -134,7 +134,7 @@ inputColClass='col-sm-9'
 ```
 * ``placeholder`` - set to true if you wish to use the schema label for the input placeholder.
 * ``backdrop`` - disables or enables modal-backdrop. Defaults to true (modal can be dismissed by mouse click). To disable use 'static' value. (See more [here](http://getbootstrap.com/javascript/#modals-options))
-* ``subscriptions`` - should be a helper that return a function that accepts a single argument, instance, an allows to pass subscriptions and have Template Level Subscription for Modal template. See example in [Update with Template Level Subscription](update-with-template-level-subscription-example) section.
+* ``subscriptions`` - should be a helper that return a function that accepts a single argument, instance, an allows to pass subscriptions and have Template Level Subscription for Modal template. See example in [Update with Template Level Subscription](#update-with-template-level-subscription-example) section.
 
 
 #### [Remove](#remove) ####
