@@ -8,12 +8,12 @@ The guys from [yogiben](https://github.com/yogiben) have created a great package
 
 The main idea of this package is to use dynamic way of Modal template generation using Blaze.renderWithData. It allows to get rid of using sessions and gives some advantages.
 
-## [Features](#features) ##
+## Features ##
 * Package uses dynamic way of Modal template generation / destruction using [PeppeL-G:Bootstrap-3-Modal](https://github.com/PeppeL-G/bootstrap-3-modal)
 * Ability to pass subscriptions and have Template Level Subscription for Modal template
 * Ability to remove documents by using [aldeed:meteor-delete-button](https://github.com/aldeed/meteor-delete-button) and get access to all callbacks that are provided by this package
 
-## [Setup](#setup) ##
+## Setup ##
 
 1. ```meteor add peppelg:bootstrap-3-modal``` [link](https://github.com/PeppeL-G/bootstrap-3-modal)
 2. ```meteor add aldeed:delete-button``` [link](https://github.com/aldeed/meteor-delete-button)
@@ -21,20 +21,20 @@ The main idea of this package is to use dynamic way of Modal template generation
 4. Use `afModalShow` template to create a link that will trigger the modal
 
 ## How to use ##
-### [Insert Example](#insert-example) ###
+### Insert Example ###
 ```meteor
 {{#afModalShow formId="addProduct" collection="products" type="insert" class="btn btn-primary"}}
 	Add
 {{/afModalShow}}
 ```
-### [Update Example](#update-example) ###
+### Update Example ###
 ```meteor
 {{#afModalShow formId="editProduct" collection="products" type="update" doc=this._id class="btn btn-primary"}}
 	Update
 {{/afModalShow}}
 ```
 
-### [Update with Template Level Subscription Example](#update-with-template-level-subscription-example) ###
+### Update with Template Level Subscription Example ###
 ```javascript
 ...
 Template.ProductItem.helpers({
@@ -54,7 +54,7 @@ Template.ProductItem.helpers({
 </template>
 ```
 
-### [Autoform Callbacks/Hooks Example](#autofrom-callbackshooks-example) ###
+### Autoform Callbacks/Hooks Example ###
 It works the same way as with normal autoform.
 ```javascript
 ...
@@ -67,14 +67,14 @@ AutoForm.addHooks('editProduct', {
 Read more in the autoform [callbacks/hooks](https://github.com/aldeed/meteor-autoform#callbackshooks) section.
 
 
-### [Remove Example](#remove-example) ###
+### Remove Example ###
 ```meteor
 {{#afModalShow collection="products" type="remove" doc=this._id class="btn btn-primary" title="Confirm modal" prompt="Are you sure?" buttonContent="Submit"}}
 	Delete
 {{/afModalShow}}
 ```
 
-### [Remove with callbacks Example](#remove-with-callbacks-example) ###
+### Remove with callbacks Example ###
 ```javascript
 ...
 Template.ProductItem.helpers({
@@ -104,20 +104,20 @@ Template.ProductItem.helpers({
 </template>
 ```
 
-### Attributes of afModalShow tempale###
-#### [Required](#required) ####
+### Attributes of afModalShow tempale ###
+#### Required ####
 * ``type`` - can be any autoform type (``insert``, ``update``, ``method`` .. etc .. [see more](https://github.com/aldeed/meteor-autoform#form-types)) and  ``remove`` type that is not the autoform type.
 * ``collection`` - the name of collection.
 * `doc` - document id or document object. Not required for `insert` type.
 
-#### [Common](#common) ####
+#### Common ####
 * ``title`` - the title of the modal window.
 * ``prompt`` - some text above autoform or delete buttons.
 * ``buttonContent`` - The submit button content. If you don't set this, 'Create' is used for 'insert' type, 'Update' for 'update' type, 'Confirm' for 'remove' type and 'Submit' for other types.
 * ``buttonClasses`` - Set the class attribute for the submit button. By default 'btn btn-primary' is used.
 * ``dialogClass`` - can be used to add additional class for `.modal-dialog` (e.g. `modal-sm`)
 
-#### [Autoform](#autoform) ####
+#### Autoform ####
 * ``formId`` - Optional. The id of autoform. by default 'afModalForm' is used.
 * ``meteormethod`` - Optional. When type is "method" or "method-update", indicate the name of the Meteor method in this attribute. [Read more](https://github.com/aldeed/meteor-autoform#autoform-1)
 * ``schema`` - Required if collection is not set. This schema will be used to generate and validate the form prior to submission, so you can specify this along with a collection if you want to use a schema that is slightly different from the one your collection uses. [Read more](https://github.com/aldeed/meteor-autoform#autoform-1)
@@ -137,7 +137,7 @@ inputColClass='col-sm-9'
 * ``subscriptions`` - should be a helper that return a function that accepts a single argument, instance, an allows to pass subscriptions and have Template Level Subscription for Modal template. See example in [Update with Template Level Subscription](#update-with-template-level-subscription-example) section.
 
 
-#### [Remove](#remove) ####
+#### Remove ####
 * ``closeButtonContent`` - The cancel button content. 'Cancel' by default.
 * ``closeButtonClasses`` - The cancel button classes. 'btn' by default.
 * ``beforeRemove`` - should be a helper that return a function that  accepts three arguments, ``collection``, ``id`` and ``quickRemoveButton`` object, and is called before the document is removed. You can perform asynchronous tasks in this function, such as displaying a confirmation dialog. If the document should be removed, call ``quickRemoveButton.remove()``.  
