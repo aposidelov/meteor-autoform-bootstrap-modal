@@ -1,12 +1,12 @@
 Meteor [Autoform](https://github.com/aldeed/meteor-autoform) Bootstrap Modals
 ======================================================================
 
-Allows to work with autoforms in Bootstrap modals.
+Allows to show autoforms in Bootstrap modals.
 
 ## Difference between [yogiben:autoform-modals](https://github.com/yogiben/meteor-autoform-modals) ##
 The guys from [yogiben](https://github.com/yogiben) have created a great package thanks for this. But it has some issues that provoked me to develop this package. The main problem is that yogiben package uses static Boostrap Modal and session variables in order to setup Autoform settings. For the autoform with simple fields it can work good enough but if you have autoform that uses complex autoform fields - the autoform starts to show wrong values in complex fields after saving and opening Modal again. I call afField as Complex if it has .created, .rendered callbacks defined in its template. For example [yogiben:Autoform Tags](https://github.com/yogiben/meteor-autoform-tags) or [VeliovGroup:Autoform Files](https://github.com/VeliovGroup/meteor-autoform-file).
 
-The main idea of this package is to use dynamic way of Modal template generation using Blaze.renderWithData. It allows to get rid of using sessions and gives some advantages.
+The main idea of this package is to use dynamic way of Modal template generation using ``Blaze.renderWithData``. It allows to get rid of using sessions and gives some sufficient advantages.
 
 ## Features ##
 * Package uses dynamic way of Modal template generation / destruction using [PeppeL-G:Bootstrap-3-Modal](https://github.com/PeppeL-G/bootstrap-3-modal)
