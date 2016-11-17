@@ -14,10 +14,10 @@ Package.on_use(function (api) {
     'less@2.5.0_2',
     'session',    
     'ui',
-    'peppelg:bootstrap-3-modal',
+    'peppelg:bootstrap-3-modal@1.0.4',
     'aldeed:autoform@5.5.1',
     'raix:handlebar-helpers@0.2.5',
-    'aldeed:delete-button'    
+    'aldeed:delete-button@2.0.0'    
   ], 'client');
 
   api.add_files('lib/client/main.html', 'client');
