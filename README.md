@@ -10,7 +10,7 @@ The main idea of this package is to use dynamic way of Modal template generation
 
 ## [Features](#features) ##
 * Package uses dynamic way of Modal template generation / destruction using [PeppeL-G:Bootstrap-3-Modal](https://github.com/PeppeL-G/bootstrap-3-modal)
-* Ability to pass subscriptions and have Template Level Subscription for  Modal template
+* Ability to pass subscriptions and have Template Level Subscription for Modal template
 * Ability to remove documents by using [aldeed:meteor-delete-button](https://github.com/aldeed/meteor-delete-button) and get access to all callbacks that are provided by this package
 
 ## [Setup](#setup) ##
@@ -69,7 +69,7 @@ Read more in the autoform [callbacks/hooks](https://github.com/aldeed/meteor-aut
 
 ### [Remove Example](#ex-remove) ###
 ```meteor
-{{#afModalShow collection="products" type="remove" doc=this._id class="btn btn-primary" title="Confirm modal" prompt="Are you sure?" buttonText="Confirm"}}
+{{#afModalShow collection="products" type="remove" doc=this._id class="btn btn-primary" title="Confirm modal" prompt="Are you sure?" buttonContent="Submit"}}
 	Delete
 {{/afModalShow}}
 ```
@@ -98,7 +98,7 @@ Template.ProductItem.helpers({
 ```
 ```meteor
 <template name="ProductItem">
-  {{#afModalShow collection="products" type="remove" doc=this._id class="btn btn-primary" title="Confirm modal" prompt="Are you sure?" buttonConfirmText="Confirm" buttonCancelText="Cancel" beforeRemove=myBeforeRemove afterRemove=myOnSuccess errorRemove=myOnError}}
+  {{#afModalShow collection="products" type="remove" doc=this._id class="btn btn-primary" title="Confirm modal" prompt="Are you sure?" buttonContent="Confirm" closeButtonContent="Close" beforeRemove=myBeforeRemove afterRemove=myOnSuccess errorRemove=myOnError}}
   	Delete
   {{/afModalShow}}
 </template>
@@ -132,8 +132,9 @@ labelClass='col-sm-3'
 ```
 inputColClass='col-sm-9'
 ```
-* ```placeholder``` - set to true if you wish to use the schema label for the input placeholder.
-* ```backdrop``` - disables or enables modal-backdrop. Defaults to true (modal can be dismissed by mouse click). To disable use 'static' value. (See more [here](http://getbootstrap.com/javascript/#modals-options))
+* ``placeholder`` - set to true if you wish to use the schema label for the input placeholder.
+* ``backdrop`` - disables or enables modal-backdrop. Defaults to true (modal can be dismissed by mouse click). To disable use 'static' value. (See more [here](http://getbootstrap.com/javascript/#modals-options))
+* ``subscriptions`` - should be a helper that return a function that accepts a single argument, instance, an allows to pass subscriptions and have Template Level Subscription for Modal template. See example in [Update with Template Level Subscription](#ex-update-sub) section.
 
 
 #### [Remove](#atts-remove) ####
@@ -141,6 +142,6 @@ inputColClass='col-sm-9'
 * ``closeButtonClasses`` - The cancel button classes. 'btn' by default.
 * ``beforeRemove`` - should be a helper that return a function that  accepts three arguments, ``collection``, ``id`` and ``quickRemoveButton`` object, and is called before the document is removed. You can perform asynchronous tasks in this function, such as displaying a confirmation dialog. If the document should be removed, call ``quickRemoveButton.remove()``.  
 * ``afterRemove`` - should be a helper that return a function that accepts a single argument, result, and is called only when the remove operation succeeds.
-* ``errorRemove`` - should be a helper that return a function that  that accepts a single argument, error, and is called only when the remove operation fails. If you don't provide this callback, there is a default onError function that displays an alert and logs the error to the browser console.
+* ``errorRemove`` - should be a helper that return a function that accepts a single argument, error, and is called only when the remove operation fails. If you don't provide this callback, there is a default onError function that displays an alert and logs the error to the browser console.
 
-How to use remove callbacks see example above in [Remove Example with callbacks](#remove-with-callbacks-example) section.
+How to use remove callbacks see example above in [Remove with callbacks](#remove-with-callbacks-example) section.
